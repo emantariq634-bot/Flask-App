@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-3">Register</h4>
+        <form method="post">
+          {{ form.hidden_tag() }}
+          <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control") }}
+            {% for err in form.username.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+          </div>
+          <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", type="password") }}
+            {% for err in form.password.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+          </div>
+          <div class="d-grid"><button class="btn btn-success">Register</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+Flask>=2.3
+Flask-WTF>=1.1
+Flask-SQLAlchemy>=3.0
+Flask-Bcrypt>=1.0
+WTForms>=3.0
+bleach>=6.0
+sqlalchemy>=2.0

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-3">{{ 'Edit' if contact else 'New' }} Contact</h4>
+        <form method="post">
+          {{ form.hidden_tag() }}
+          <div class="row g-3">
+            <div class="col-md-6">
+              {{ form.full_name.label(class="form-label") }}
+              {{ form.full_name(class="form-control") }}
+              {% for err in form.full_name.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            <div class="col-md-6">
+              {{ form.email.label(class="form-label") }}
+              {{ form.email(class="form-control", type="email") }}
+              {% for err in form.email.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+
+            <div class="col-md-4">
+              {{ form.phone.label(class="form-label") }}
+              {{ form.phone(class="form-control") }}
+            </div>
+            <div class="col-md-4">
+              {{ form.city.label(class="form-label") }}
+              {{ form.city(class="form-control") }}
+            </div>
+            <div class="col-md-4">
+              {{ form.country.label(class="form-label") }}
+              {{ form.country(class="form-control") }}
+            </div>
+
+            <div class="col-12">
+              {{ form.address.label(class="form-label") }}
+              {{ form.address(class="form-control") }}
+            </div>
+
+            <div class="col-md-6">
+              {{ form.dob.label(class="form-label") }}
+              {{ form.dob(class="form-control") }}
+            </div>
+
+            <div class="col-12">
+              {{ form.notes.label(class="form-label") }}
+              {{ form.notes(class="form-control") }}
+            </div>
+
+            <div class="col-12 text-end">
+              <a href="{{ url_for('contacts') }}" class="btn btn-outline-secondary me-2">Cancel</a>
+              <button class="btn btn-primary">{{ 'Save' if contact else 'Create' }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
