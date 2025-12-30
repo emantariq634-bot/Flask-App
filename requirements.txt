@@ -5,3 +5,5 @@ Flask-Bcrypt>=1.0
 WTForms>=3.0
 bleach>=6.0
 sqlalchemy>=2.0
+pytest>=8.0
+
