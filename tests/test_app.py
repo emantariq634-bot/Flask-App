@@ -1,10 +1,18 @@
 import sys
-import os
+from pathlib import Path
 
-# Add the folder that contains app.py to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "Flask app"))
+ROOT = Path(__file__).resolve().parents[1]
+
+# Find app.py anywhere inside the repo (one level down or deeper)
+matches = list(ROOT.rglob("app.py"))
+
+assert matches, f"app.py not found anywhere under: {ROOT}"
+
+app_py = matches[0]
+sys.path.insert(0, str(app_py.parent))
 
 from app import app
+
 
 def test_homepage():
     client = app.test_client()
